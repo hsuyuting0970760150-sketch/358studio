@@ -790,6 +790,59 @@
             }
         }
 
+
+        /* 圖片樣式 */
+        .header-logo {
+            max-width: 180px;
+            height: auto;
+            margin-bottom: 1.5rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .team-member-photo {
+            max-width: 100%;
+            height: auto;
+            border-radius: 2px;
+            margin-bottom: 1.5rem;
+            display: block;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .partner-logo {
+            max-width: 120px;
+            height: auto;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .header-logo {
+                max-width: 150px;
+            }
+
+            .partner-logo {
+                max-width: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-logo {
+                max-width: 120px;
+                margin-bottom: 1rem;
+            }
+
+            .team-member-photo {
+                margin-bottom: 1rem;
+            }
+
+            .partner-logo {
+                max-width: 80px;
+                margin-bottom: 0.8rem;
+            }
+        }
+
         /* Footer */
         footer {
             background: var(--accent-dark);
@@ -1210,6 +1263,7 @@
     <!-- 英雄區段 -->
     <section class="hero">
         <div class="container">
+            <img src="images/358studio_logo.png" alt="參伍捌工作室 Logo" class="header-logo">
             <h1>參伍捌工作室</h1>
             <p class="tagline">讓你把聲音 變成你自己的樣子</p>
             <p class="subtitle">以聲音為核心的創作與教學空間。我們專注於歌唱教學、配唱製作、錄音引導與聲音表達，陪伴每一位創作者與演唱者，找到屬於自己的聲音樣貌。</p>
@@ -1337,7 +1391,8 @@
             <div id="directors" class="team-tab-content active">
                 <div class="team-member">
                     <h3>徐鈺婷（阿徐） Hsu</h3>
-                    <p class="title">獨立音樂人／聲音藝術家／劇場音樂設計</p>
+                    <img src="images/ahsu_photo.jpg" alt="徐鈺婷（阿徐）" class="team-member-photo">
+                                        <p class="title">獨立音樂人／聲音藝術家／劇場音樂設計</p>
                     
                     <p>畢業於東吳大學歷史系與實踐大學音樂系碩士班，主修音樂設計。長期投入流行音樂、劇場音樂與聲音設計工作，擅長歌唱教學、配唱製作與聲音情緒引導。</p>
 
@@ -1360,7 +1415,8 @@
             <div id="partners" class="team-tab-content">
                 <div class="partner-card">
                     <h3><a href="https://www.enlightenflow2020.com/" target="_blank" style="color: var(--deep-brown); text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='var(--caramel)'" onmouseout="this.style.color='var(--deep-brown)'">啟萌流動 Enlighten Flow</a></h3>
-                    <div class="website">
+                    <img src="images/enlightenflow_logo.png" alt="啟萌流動 Logo" class="partner-logo">
+                                        <div class="website">
                         <a href="https://www.enlightenflow2020.com/" target="_blank">https://www.enlightenflow2020.com/</a>
                     </div>
                     
@@ -1370,7 +1426,8 @@
 
                 <div class="partner-card">
                     <h3><a href="https://mi-sounds.com" target="_blank" style="color: var(--deep-brown); text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='var(--caramel)'" onmouseout="this.style.color='var(--deep-brown)'">汨音 Mi Sounds</a></h3>
-                    <div class="website">
+                    <img src="images/misounds_logo.png" alt="汨音 Logo" class="partner-logo">
+                                        <div class="website">
                         <a href="https://mi-sounds.com" target="_blank">https://mi-sounds.com</a>
                     </div>
                     
@@ -1506,17 +1563,6 @@
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.5!2d121.5162922!3d25.024312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a9d97384eb87%3A0x7e89d57313fb2839!2z5Y-D5LyN5o2M5bel5L2c5a6k!5e0!3m2!1szh-TW!2stw!4v1" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
-            <!-- 交通資訊 -->
-            <div class="contact-transport">
-                <h3>交通方式</h3>
-                
-                <div class="transport-category">
-                    <h4>【捷運】</h4>
-                    <ul>
-                        <li>捷運板南線（藍線）西門站 1 號出口，步行約 10 分鐘</li>
-                        <li>捷運板南線（藍線）龍山寺站 2 號出口，步行約 10 分鐘</li>
-                    </ul>
-                </div>
 
                 <div class="transport-category">
                     <h4>【公車】</h4>
