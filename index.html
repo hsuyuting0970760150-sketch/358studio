@@ -354,6 +354,101 @@
             color: var(--milk-tea);
         }
 
+        /* 團隊分類頁籤 */
+        .team-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 1rem;
+        }
+
+        .team-tab-btn {
+            padding: 0.8rem 1.5rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: var(--text-dark);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Noto Sans TC', sans-serif;
+            font-weight: 500;
+        }
+
+        .team-tab-btn:hover {
+            color: var(--caramel);
+        }
+
+        .team-tab-btn.active {
+            color: var(--caramel);
+            border-bottom-color: var(--caramel);
+        }
+
+        .team-tab-content {
+            display: none;
+        }
+
+        .team-tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* 合作夥伴卡片 */
+        .partner-card {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2.5rem;
+            background: rgba(212, 181, 160, 0.12);
+            border-radius: 2px;
+            border-left: 4px solid var(--milk-tea);
+        }
+
+        .partner-card h3 {
+            font-size: 1.3rem;
+            color: var(--deep-brown);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .partner-card .subtitle {
+            font-size: 0.95rem;
+            color: var(--caramel);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .partner-card .website {
+            margin-bottom: 1.5rem;
+        }
+
+        .partner-card .website a {
+            color: var(--caramel);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .partner-card .website a:hover {
+            color: var(--deep-brown);
+            text-decoration: underline;
+        }
+
+        .partner-card p {
+            margin-bottom: 1rem;
+            text-align: justify;
+            line-height: 1.9;
+        }
+
         /* Portfolio 區段 */
         #portfolio {
             background: rgba(212, 181, 160, 0.08);
@@ -1118,27 +1213,61 @@
         <div class="container">
             <h2>團隊成員</h2>
             
-            <div class="team-member">
-                <h3>徐鈺婷（阿徐） Hsu</h3>
-                <p class="title">獨立音樂人／聲音藝術家／劇場音樂設計</p>
-                
-                <p>畢業於東吳大學歷史系與實踐大學音樂系碩士班，主修音樂設計。長期投入流行音樂、劇場音樂與聲音設計工作，擅長歌唱教學、配唱製作與聲音情緒引導。</p>
-
-                <h4>重要經歷</h4>
-                <ul>
-                    <li>2025 北流金舞台歌唱大賽｜總冠軍</li>
-                    <li>LA Voice 賽普特世界好聲音｜前十名</li>
-                    <li>第34屆傳藝金曲獎典禮配樂｜音樂製作</li>
-                    <li>北藝中心開幕季《永晴之許》｜音樂助理</li>
-                    <li>天作之合音樂劇《阿堯》｜音樂執導助理／現場PG樂手</li>
-                    <li>動見体《門禁社區》、《落英》｜音樂助理暨音效執行</li>
-                    <li>人尹合作社寶寶劇場系列《媽媽，我什麼時候可以長大》、《媽媽，地球塑膠了》｜音樂設計</li>
-                </ul>
-
-                <p style="margin-top: 1.5rem;">2025年發行首張個人創作EP《韌》。</p>
+            <!-- 團隊分類頁籤 -->
+            <div class="team-tabs">
+                <button class="team-tab-btn active" data-tab="directors">藝術總監</button>
+                <button class="team-tab-btn" data-tab="partners">合作夥伴</button>
             </div>
+
+            <!-- 藝術總監分頁 -->
+            <div id="directors" class="team-tab-content active">
+                <div class="team-member">
+                    <h3>徐鈺婷（阿徐） Hsu</h3>
+                    <p class="title">獨立音樂人／聲音藝術家／劇場音樂設計</p>
+                    
+                    <p>畢業於東吳大學歷史系與實踐大學音樂系碩士班，主修音樂設計。長期投入流行音樂、劇場音樂與聲音設計工作，擅長歌唱教學、配唱製作與聲音情緒引導。</p>
+
+                    <h4>重要經歷</h4>
+                    <ul>
+                        <li>2025 北流金舞台歌唱大賽｜總冠軍</li>
+                        <li>LA Voice 賽普特世界好聲音｜前十名</li>
+                        <li>第34屆傳藝金曲獎典禮配樂｜音樂製作</li>
+                        <li>北藝中心開幕季《永晴之許》｜音樂助理</li>
+                        <li>天作之合音樂劇《阿堯》｜音樂執導助理／現場PG樂手</li>
+                        <li>動見体《門禁社區》、《落英》｜音樂助理暨音效執行</li>
+                        <li>人尹合作社寶寶劇場系列《媽媽，我什麼時候可以長大》、《媽媽，地球塑膠了》｜音樂設計</li>
+                    </ul>
+
+                    <p style="margin-top: 1.5rem;">2025年發行首張個人創作EP《韌》。</p>
+                </div>
+            </div>
+
+            <!-- 合作夥伴分頁 -->
+            <div id="partners" class="team-tab-content">
+                <div class="partner-card">
+                    <h3><a href="https://www.enlightenflow2020.com/" target="_blank" style="color: var(--deep-brown); text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='var(--caramel)'" onmouseout="this.style.color='var(--deep-brown)'">啟萌流動 Enlighten Flow</a></h3>
+                    <div class="website">
+                        <a href="https://www.enlightenflow2020.com/" target="_blank">https://www.enlightenflow2020.com/</a>
+                    </div>
+                    
+                    <h4>品牌理念</h4>
+                    <p>啟萌流動是一個以舞蹈為核心的流動系統，陪伴人們回到身體，重新感受自己。品牌理念是「接受此刻的自己，然後慢慢變成自己喜歡的樣子」。透過舞蹈與身體活動，在安全且被尊重的環境中，協助個人建立自信與表達能力，也為團體與企業打造專屬的身體連結體驗。啟萌流動關注的是身體如何回應當下，以及一個人如何透過跳舞，理解自己的狀態、節奏與界線。</p>
+                </div>
+
+                <div class="partner-card">
+                    <h3><a href="https://mi-sounds.com" target="_blank" style="color: var(--deep-brown); text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='var(--caramel)'" onmouseout="this.style.color='var(--deep-brown)'">汨音 Mi Sounds</a></h3>
+                    <div class="website">
+                        <a href="https://mi-sounds.com" target="_blank">https://mi-sounds.com</a>
+                    </div>
+                    
+                    <h4>品牌理念</h4>
+                    <p>汨音以頌缽音流為媒介，連結自然能量與人體細胞共振調頻，協助人們在都市生活中回到身心平衡。「汨」是水、太陽與空氣交織成的振動頻率，透過頌缽綿延悠長的波音與振動，讓混亂的細胞意識得以修復，情緒能量開始流動，意識擴張，新的可能性油然而生。</p>
+                </div>
+            </div>
+
         </div>
     </section>
+
 
     <!-- Portfolio 區段 -->
     <section id="portfolio">
@@ -1266,5 +1395,22 @@
         <p>&copy; 2025 參伍捌工作室 358 Studio. All rights reserved.</p>
         <p>Designed with care for authentic sound expression.</p>
     </footer>
+    <script>
+        // 團隊分類頁籤切換功能
+        document.querySelectorAll('.team-tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const tabName = this.getAttribute('data-tab');
+                
+                // 移除所有頁籤的 active 類別
+                document.querySelectorAll('.team-tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.team-tab-content').forEach(content => content.classList.remove('active'));
+                
+                // 為當前頁籤和內容添加 active 類別
+                this.classList.add('active');
+                document.getElementById(tabName).classList.add('active');
+            });
+        });
+    </script>
+
 </body>
 </html>
