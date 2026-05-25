@@ -676,6 +676,120 @@
             color: var(--milk-tea);
         }
 
+
+        /* 聯絡區塊地圖與交通資訊 */
+        .contact-map {
+            margin: 3rem 0 2rem;
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-map iframe {
+            display: block;
+            width: 100%;
+        }
+
+        .contact-transport {
+            background: rgba(212, 181, 160, 0.08);
+            padding: 2.5rem;
+            border-radius: 2px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--milk-tea);
+        }
+
+        .contact-transport h3 {
+            font-size: 1.2rem;
+            color: var(--deep-brown);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .transport-category {
+            margin-bottom: 1.5rem;
+        }
+
+        .transport-category h4 {
+            font-size: 0.95rem;
+            color: var(--caramel);
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+
+        .transport-category ul {
+            list-style: none;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            margin-left: 0;
+        }
+
+        .transport-category li {
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .transport-category li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--milk-tea);
+            font-size: 0.6rem;
+        }
+
+        .transport-category p {
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .transport-category p::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--milk-tea);
+            font-size: 0.6rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-transport {
+                padding: 1.5rem;
+            }
+
+            .contact-transport h3 {
+                font-size: 1rem;
+            }
+
+            .transport-category h4 {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-transport {
+                padding: 1.2rem;
+            }
+
+            .contact-transport h3 {
+                font-size: 0.95rem;
+                margin-bottom: 1rem;
+            }
+
+            .transport-category h4 {
+                font-size: 0.85rem;
+            }
+
+            .transport-category li,
+            .transport-category p {
+                font-size: 0.8rem;
+                padding-left: 1.2rem;
+            }
+        }
+
         /* Footer */
         footer {
             background: var(--accent-dark);
@@ -1386,6 +1500,41 @@
                     <h3>Email</h3>
                     <a href="mailto:tfestudio358@gmail.com">tfestudio358@gmail.com</a>
                 </div>
+
+            <!-- 地圖 -->
+            <div class="contact-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.5!2d121.5162922!3d25.024312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a9d97384eb87%3A0x7e89d57313fb2839!2z5Y-D5LyN5o2M5bel5L2c5a6k!5e0!3m2!1szh-TW!2stw!4v1" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <!-- 交通資訊 -->
+            <div class="contact-transport">
+                <h3>交通方式</h3>
+                
+                <div class="transport-category">
+                    <h4>【捷運】</h4>
+                    <ul>
+                        <li>捷運板南線（藍線）西門站 1 號出口，步行約 10 分鐘</li>
+                        <li>捷運板南線（藍線）龍山寺站 2 號出口，步行約 10 分鐘</li>
+                    </ul>
+                </div>
+
+                <div class="transport-category">
+                    <h4>【公車】</h4>
+                    <p>「廈安里」站：下車步行約 2 分鐘</p>
+                    <p>行經路線：204、205、307、62、671</p>
+                    <p>「華江高中」站：下車步行約 5 分鐘</p>
+                    <p>行經路線：265、604</p>
+                </div>
+
+                <div class="transport-category">
+                    <h4>【開車／騎車】</h4>
+                    <ul>
+                        <li>工作室位於中華路二段附近，鄰近有路邊停車格</li>
+                        <li>附近停車場：古亭國中地下停車場（中華路二段606巷1號地下）</li>
+                        <li>機車可停路邊機車格</li>
+                    </ul>
+                </div>
+            </div>
             </div>
         </div>
     </section>
