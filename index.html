@@ -843,6 +843,40 @@
             }
         }
 
+
+        /* YouTube 嵌入影片樣式 */
+        .youtube-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 寬高比 */
+            height: 0;
+            overflow: hidden;
+            margin-top: 2rem;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .youtube-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .youtube-container {
+                margin-top: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .youtube-container {
+                margin-top: 1rem;
+            }
+        }
+
         /* Footer */
         footer {
             background: var(--accent-dark);
@@ -1408,6 +1442,9 @@
                     </ul>
 
                     <p style="margin-top: 1.5rem;">2025年發行首張個人創作EP《韌》。</p>
+                    <div class="youtube-container">
+                        <iframe src="https://www.youtube.com/embed/0Ohy6RWFFOs" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
                 </div>
             </div>
 
