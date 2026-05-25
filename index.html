@@ -426,6 +426,107 @@
             font-style: italic;
         }
 
+        /* News 區段 */
+        #news {
+            background: rgba(212, 181, 160, 0.08);
+        }
+
+        .news-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-size: 1.05rem;
+            line-height: 2;
+            color: var(--text-dark);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .news-card {
+            background: var(--cream);
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .news-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(93, 78, 55, 0.1);
+        }
+
+        .news-card-header {
+            background: linear-gradient(135deg, var(--caramel) 0%, var(--deep-brown) 100%);
+            padding: 1.5rem;
+            color: var(--cream);
+            border-bottom: 3px solid var(--milk-tea);
+        }
+
+        .news-card-header h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .news-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            opacity: 0.9;
+            margin-top: 0.8rem;
+        }
+
+        .news-card-source {
+            font-style: italic;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.3rem 0.6rem;
+            border-radius: 2px;
+        }
+
+        .news-card-date {
+            font-weight: 500;
+        }
+
+        .news-card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-card-desc {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        .news-card-link {
+            display: inline-block;
+            color: var(--caramel);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        .news-card-link:hover {
+            color: var(--deep-brown);
+            border-bottom-color: var(--caramel);
+        }
+
         /* Contact 區段 */
         #contact {
             background: var(--deep-brown);
@@ -560,7 +661,8 @@
                 <li><a href="#services">服務</a></li>
                 <li><a href="#team">團隊</a></li>
                 <li><a href="#portfolio">作品</a></li>
-                <li><a href="#contact">聯絡</a></li>
+                <li><a href="#news">動態</a></li>
+                <li><a href="#contact">联絡</a></li>
             </ul>
         </div>
     </nav>
@@ -743,6 +845,57 @@
                     <div class="portfolio-item-content">
                         <p>參與的劇場音樂設計與製作代表作。</p>
                         <p class="status">敬請期待完整連結</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News 區段 -->
+    <section id="news">
+        <div class="container">
+            <h2>最新動態</h2>
+            
+            <p class="news-intro">遇見阻待的時刻、記錄每一步的成長。這裡是參伍捲工作室的最新消息與故事。</p>
+
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-card-header">
+                        <h3>登上舞台不是夢！金舞台優勝者在圓夢大歌廳實現音樂夢</h3>
+                        <div class="news-card-meta">
+                            <span class="news-card-source">台北流行音樂中心</span>
+                            <span class="news-card-date">2025.11.26</span>
+                        </div>
+                    </div>
+                    <div class="news-card-content">
+                        <p class="news-card-desc">2025 北流金舞台歌唱大賽冠軍徐鲁婷，站上北流圓夢大歌廳舞台。</p>
+                        <a href="https://www.tmc.taipei/tw/media/article/9CEc18581E07" target="_blank" class="news-card-link">閱讀全文 →</a>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="news-card-header">
+                        <h3>唱出自己的韌性——2025 北流金舞台歌唱大賽冠軍 徐鲁婷專訪</h3>
+                        <div class="news-card-meta">
+                            <span class="news-card-source">台北流行音樂中心 Facebook</span>
+                        </div>
+                    </div>
+                    <div class="news-card-content">
+                        <p class="news-card-desc">從被否定到圓夢時刻，不菸不酒的菸酒嘉獨立音樂人徐鲁婷專訪。</p>
+                        <a href="https://www.facebook.com/TaipeiMusicCenter/posts/-唱出自己的韌性從被否定到圓夢時刻-2025-北流金舞台歌唱大賽冠軍-徐鲁婷專訪不菸不酒的菸酒嘉獨立音樂人徐鲁婷向大家介紹自己的招牠標誌她的音樂之路啟蒙自暾參/1170649685171439/" target="_blank" class="news-card-link">閱讀全文 →</a>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="news-card-header">
+                        <h3>Podcast 訪談</h3>
+                        <div class="news-card-meta">
+                            <span class="news-card-source">YouTube Music</span>
+                        </div>
+                    </div>
+                    <div class="news-card-content">
+                        <p class="news-card-desc">阻待的音樂創作與聲音故事分享。</p>
+                        <a href="https://music.youtube.com/podcast/GSF7riWkQMg" target="_blank" class="news-card-link">閱讀全文 →</a>
                     </div>
                 </div>
             </div>
