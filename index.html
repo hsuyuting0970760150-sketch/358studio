@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>參伍捌工作室 | 358 Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #F5F1ED;
+            --caramel: #8B6F47;
+            --deep-brown: #5D4E37;
+            --milk-tea: #D4B5A0;
+            --accent-dark: #3D2817;
+            --text-dark: #2C2416;
+            --border-light: #E8DFD5;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Serif TC', serif;
+            background-color: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.8;
+            letter-spacing: 0.5px;
+        }
+
+        /* 導航列 */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(245, 241, 237, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--caramel);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--caramel);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--caramel);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* 容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* 英雄區段 */
+        .hero {
+            margin-top: 80px;
+            padding: 6rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--cream) 0%, rgba(212, 181, 160, 0.1) 100%);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--deep-brown);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            line-height: 1.4;
+        }
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            color: var(--caramel);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        .hero .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.9;
+        }
+
+        /* 按鈕 */
+        .btn {
+            display: inline-block;
+            padding: 0.9rem 2rem;
+            background: var(--caramel);
+            color: var(--cream);
+            text-decoration: none;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            border: 2px solid var(--caramel);
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .btn:hover {
+            background: var(--deep-brown);
+            border-color: var(--deep-brown);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(93, 78, 55, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--caramel);
+            border: 2px solid var(--caramel);
+        }
+
+        .btn-secondary:hover {
+            background: var(--caramel);
+            color: var(--cream);
+        }
+
+        /* 區段 */
+        section {
+            padding: 5rem 2rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        section h2 {
+            font-size: 2.2rem;
+            color: var(--deep-brown);
+            margin-bottom: 2rem;
+            font-weight: 400;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        section p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* About 區段 */
+        #about {
+            background: var(--cream);
+        }
+
+        .about-intro {
+            background: var(--milk-tea);
+            padding: 2.5rem;
+            border-radius: 2px;
+            margin-bottom: 3rem;
+            border-left: 4px solid var(--caramel);
+        }
+
+        .about-intro p {
+            font-size: 1.05rem;
+            line-height: 2;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .about-intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-full {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-full h3 {
+            font-size: 1.3rem;
+            color: var(--caramel);
+            margin: 2rem 0 1rem;
+            font-weight: 400;
+        }
+
+        .about-full p {
+            text-align: justify;
+        }
+
+        /* Services 區段 */
+        #services {
+            background: rgba(212, 181, 160, 0.08);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--cream);
+            padding: 2rem;
+            border-radius: 2px;
+            border-top: 3px solid var(--caramel);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(93, 78, 55, 0.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            color: var(--deep-brown);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .service-card .subtitle {
+            font-size: 0.9rem;
+            color: var(--caramel);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            margin: 1rem 0;
+        }
+
+        .service-card li {
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-card li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--milk-tea);
+            font-size: 0.6rem;
+        }
+
+        /* Team 區段 */
+        #team {
+            background: var(--cream);
+        }
+
+        .team-member {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2.5rem;
+            background: rgba(212, 181, 160, 0.12);
+            border-radius: 2px;
+            border-left: 4px solid var(--caramel);
+        }
+
+        .team-member h3 {
+            font-size: 1.3rem;
+            color: var(--deep-brown);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .team-member .title {
+            font-size: 0.95rem;
+            color: var(--caramel);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .team-member p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .team-member h4 {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+
+        .team-member ul {
+            list-style: none;
+            font-size: 0.9rem;
+            margin-left: 0;
+        }
+
+        .team-member li {
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .team-member li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--milk-tea);
+        }
+
+        /* Portfolio 區段 */
+        #portfolio {
+            background: rgba(212, 181, 160, 0.08);
+        }
+
+        .portfolio-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-size: 1.05rem;
+            line-height: 2;
+            color: var(--text-dark);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .portfolio-item {
+            background: var(--cream);
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(93, 78, 55, 0.1);
+        }
+
+        .portfolio-item-header {
+            background: linear-gradient(135deg, var(--milk-tea) 0%, var(--caramel) 100%);
+            padding: 2rem;
+            color: var(--cream);
+            text-align: center;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .portfolio-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+
+        .portfolio-item .category {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .portfolio-item-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-item p {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-item .status {
+            font-size: 0.85rem;
+            color: var(--caramel);
+            font-style: italic;
+        }
+
+        /* Contact 區段 */
+        #contact {
+            background: var(--deep-brown);
+            color: var(--cream);
+        }
+
+        #contact h2 {
+            color: var(--cream);
+        }
+
+        .contact-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-size: 1.05rem;
+            line-height: 2;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 2rem;
+            border-radius: 2px;
+            border-left: 3px solid var(--milk-tea);
+            text-align: center;
+        }
+
+        .contact-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--milk-tea);
+            font-weight: 400;
+        }
+
+        .contact-item a {
+            color: var(--cream);
+            text-decoration: none;
+            word-break: break-all;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--milk-tea);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--accent-dark);
+            color: var(--cream);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.1rem;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav .container {
+                padding: 0 1rem;
+            }
+
+            nav ul {
+                gap: 0.8rem;
+            }
+
+            .hero {
+                padding: 3rem 1rem;
+                margin-top: 70px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 導航列 -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">參伍捌工作室</a>
+            <ul>
+                <li><a href="#about">關於</a></li>
+                <li><a href="#services">服務</a></li>
+                <li><a href="#team">團隊</a></li>
+                <li><a href="#portfolio">作品</a></li>
+                <li><a href="#contact">聯絡</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 英雄區段 -->
+    <section class="hero">
+        <div class="container">
+            <h1>參伍捌工作室</h1>
+            <p class="tagline">讓你把聲音 變成你自己的樣子</p>
+            <p class="subtitle">以聲音為核心的創作與教學空間。我們專注於歌唱教學、配唱製作、錄音引導與聲音表達，陪伴每一位創作者與演唱者，找到屬於自己的聲音樣貌。</p>
+            <a href="#contact" class="btn">開始合作</a>
+        </div>
+    </section>
+
+    <!-- About 區段 -->
+    <section id="about">
+        <div class="container">
+            <h2>關於我們</h2>
+            
+            <div class="about-intro">
+                <p>參伍捌工作室是一間以「聲音」為核心的創作與教學空間。</p>
+                <p>我們專注於歌唱教學、配唱製作、錄音引導與聲音表達，陪伴每一位創作者與演唱者，找到屬於自己的聲音樣貌。</p>
+                <p>這裡不只是學唱歌的地方。而是一個能夠安心練習、誠實表達、重新感受自己的空間。</p>
+            </div>
+
+            <div class="about-full">
+                <h3>工作室理念</h3>
+                <p>參伍捌工作室由音樂人徐鈺婷（阿徐, Hsu）創立。長期投入流行音樂、劇場音樂、聲音設計與配唱製作，擅長以細膩的情緒觀察與聲音引導，協助演唱者建立屬於自己的聲音語言。</p>
+
+                <p>工作室的核心理念，是相信：</p>
+                <blockquote style="font-style: italic; color: var(--caramel); margin: 1.5rem 0; padding-left: 1.5rem; border-left: 3px solid var(--milk-tea);">
+                    「聲音不只是技巧，而是一個人如何存在於世界上的痕跡。」
+                </blockquote>
+
+                <p>因此，無論是歌唱教學、錄音配唱，或音樂創作合作，我們都重視情感、語氣、呼吸與真實性。</p>
+
+                <p>希望每一位來到這裡的人，都能慢慢找到：屬於自己的聲音、表達與力量。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services 區段 -->
+    <section id="services">
+        <div class="container">
+            <h2>服務項目</h2>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>歌唱教學</h3>
+                    <p class="subtitle">Vocal Coaching</p>
+                    <p>針對不同程度與需求，提供一對一歌唱教學。</p>
+                    <ul>
+                        <li>基礎發聲與呼吸</li>
+                        <li>音準節奏訓練</li>
+                        <li>共鳴與音色開發</li>
+                        <li>情緒與語氣詮釋</li>
+                        <li>流行歌演唱技巧</li>
+                        <li>表演與舞台表達</li>
+                    </ul>
+                    <p><strong>適合：</strong>想建立歌唱基礎的人、想改善聲音狀態的人、想準備演出／比賽／錄音的人</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>配唱製作</h3>
+                    <p class="subtitle">Vocal Production</p>
+                    <p>從Demo到正式錄音，提供完整配唱引導與演唱製作。</p>
+                    <ul>
+                        <li>演唱情緒設定</li>
+                        <li>語氣與口氣調整</li>
+                        <li>和聲設計建議</li>
+                        <li>錄音引導</li>
+                        <li>Vocal Comp與聲音整理</li>
+                    </ul>
+                    <p><strong>協助：</strong>歌手與創作者把「會唱」提升成「能被聽見」。</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>錄音服務</h3>
+                    <p class="subtitle">Recording</p>
+                    <p>提供人聲錄音與基礎聲音製作服務。</p>
+                    <ul>
+                        <li>Cover作品</li>
+                        <li>Demo錄製</li>
+                        <li>原創歌曲</li>
+                        <li>Podcast / 聲音內容</li>
+                        <li>自媒體聲音錄製</li>
+                    </ul>
+                    <p><strong>適合：</strong>需要專業人聲錄音的各類創作者。</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>詞曲創作</h3>
+                    <p class="subtitle">Songwriting</p>
+                    <p>提供詞曲創作與共同創作服務。</p>
+                    <ul>
+                        <li>情感敘事型作品</li>
+                        <li>流行／Indie Pop</li>
+                        <li>劇場式聲音敘事</li>
+                        <li>女性視角與情緒描寫</li>
+                    </ul>
+                    <p><strong>擅長：</strong>深度情感與獨特視角的音樂創作。</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>聲音工作坊</h3>
+                    <p class="subtitle">Workshop / Corporate Training</p>
+                    <p>結合聲音、呼吸與表達訓練，設計不同形式課程。</p>
+                    <ul>
+                        <li>聲音舒壓課程</li>
+                        <li>表達與說話訓練</li>
+                        <li>團體聲音工作坊</li>
+                        <li>流行音樂與聲音美學分享</li>
+                    </ul>
+                    <p><strong>適合：</strong>企業、學校、社群等各類團體。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team 區段 -->
+    <section id="team">
+        <div class="container">
+            <h2>團隊成員</h2>
+            
+            <div class="team-member">
+                <h3>徐鈺婷 Aditya Hsu</h3>
+                <p class="title">音樂人／聲音工作者／配唱製作人</p>
+                
+                <p>畢業於實踐大學音樂系碩士班，主修音樂設計。長期投入流行音樂、劇場音樂與聲音設計工作，擅長歌唱教學、配唱製作與聲音情緒引導。</p>
+
+                <h4>代表作品與經歷：</h4>
+                <ul>
+                    <li>第34屆傳藝金曲獎典禮音樂設計</li>
+                    <li>北藝中心開幕季《永晴之許》</li>
+                    <li>天作之合音樂劇《阿堯》</li>
+                    <li>動見体系列作品</li>
+                    <li>華山表藝節系列作品</li>
+                </ul>
+
+                <p style="margin-top: 1.5rem;">2025年發行首張個人創作EP《韌》。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio 區段 -->
+    <section id="portfolio">
+        <div class="container">
+            <h2>作品集</h2>
+            
+            <p class="portfolio-intro">我們相信，聲音會留下情緒的痕跡。這裡收錄了參伍捌工作室的部分創作、錄音與現場作品。</p>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-item-header">
+                        <h3>EP《韌》</h3>
+                        <p class="category">音樂作品</p>
+                    </div>
+                    <div class="portfolio-item-content">
+                        <p>首張個人創作EP，2025年發行。</p>
+                        <p class="status">敬請期待完整連結</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-item-header">
+                        <h3>#聲音裡的自己</h3>
+                        <p class="category">Cover / Reels</p>
+                    </div>
+                    <div class="portfolio-item-content">
+                        <p>精選現場演唱片段與配唱作品。</p>
+                        <p class="status">敬請期待完整連結</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-item-header">
+                        <h3>劇場作品集</h3>
+                        <p class="category">劇場音樂設計</p>
+                    </div>
+                    <div class="portfolio-item-content">
+                        <p>參與的劇場音樂設計與製作代表作。</p>
+                        <p class="status">敬請期待完整連結</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact 區段 -->
+    <section id="contact">
+        <div class="container">
+            <h2>聯絡我們</h2>
+            
+            <p class="contact-intro">如果你對課程、錄音、配唱製作或合作有興趣，歡迎與我們聯繫。我們會一起找到最適合你的聲音方向。</p>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>LINE Official</h3>
+                    <a href="https://lin.ee/fAjwkhK" target="_blank">https://lin.ee/fAjwkhK</a>
+                </div>
+
+                <div class="contact-item">
+                    <h3>Instagram</h3>
+                    <a href="https://www.instagram.com/358hyt/" target="_blank">@358hyt</a>
+                </div>
+
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <a href="mailto:tfestudio358@gmail.com">tfestudio358@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 參伍捌工作室 358 Studio. All rights reserved.</p>
+        <p>Designed with care for authentic sound expression.</p>
+    </footer>
+</body>
+</html>
