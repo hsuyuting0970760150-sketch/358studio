@@ -597,56 +597,387 @@
 
         /* 響應式設計 */
         @media (max-width: 768px) {
-            nav ul {
-                gap: 1rem;
-                font-size: 0.85rem;
+            nav {
+                padding: 0.8rem 0;
             }
 
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero .tagline {
-                font-size: 1.1rem;
-            }
-
-            section h2 {
-                font-size: 1.8rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-info {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
             nav .container {
                 padding: 0 1rem;
             }
 
+            nav .logo {
+                font-size: 1rem;
+            }
+
             nav ul {
                 gap: 0.8rem;
+                font-size: 0.8rem;
             }
 
             .hero {
-                padding: 3rem 1rem;
                 margin-top: 70px;
+                padding: 4rem 1rem;
             }
 
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero .subtitle {
+                font-size: 0.95rem;
+                max-width: 100%;
             }
 
             section {
-                padding: 3rem 1rem;
+                padding: 3.5rem 1rem;
             }
 
             section h2 {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .portfolio-item-header {
+                padding: 1.5rem;
+                min-height: 100px;
+            }
+
+            .portfolio-item h3 {
+                font-size: 1rem;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .news-card-header {
+                padding: 1.2rem;
+            }
+
+            .news-card-header h3 {
+                font-size: 1rem;
+            }
+
+            .news-card-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .contact-item {
+                padding: 1.5rem;
+            }
+
+            .team-member {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 0.6rem 0;
+            }
+
+            nav .container {
+                padding: 0 0.8rem;
+            }
+
+            nav .logo {
+                font-size: 0.9rem;
+                letter-spacing: 0px;
+            }
+
+            nav ul {
+                gap: 0.5rem;
+                font-size: 0.7rem;
+            }
+
+            nav a {
+                font-size: 0.7rem;
+            }
+
+            .hero {
+                padding: 2.5rem 1rem;
+                margin-top: 65px;
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+                margin-bottom: 0.8rem;
+                letter-spacing: 1px;
+            }
+
+            .hero .tagline {
+                font-size: 0.95rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .hero .subtitle {
+                font-size: 0.85rem;
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
+            }
+
+            .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.85rem;
+            }
+
+            section {
+                padding: 2.5rem 1rem;
+            }
+
+            section h2 {
+                font-size: 1.4rem;
+                margin-bottom: 1.2rem;
+            }
+
+            section p {
+                margin-bottom: 1rem;
+            }
+
+            .about-intro {
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .about-intro p {
+                font-size: 0.95rem;
+                line-height: 1.7;
+                margin-bottom: 0.8rem;
+            }
+
+            .about-full h3 {
+                font-size: 1.1rem;
+                margin: 1.5rem 0 0.8rem;
+            }
+
+            .about-full p {
+                font-size: 0.9rem;
+                text-align: left;
+                line-height: 1.6;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .service-card {
+                padding: 1.2rem;
+                border-top-width: 2px;
+            }
+
+            .service-card h3 {
+                font-size: 1rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .service-card .subtitle {
+                font-size: 0.8rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .service-card p {
+                font-size: 0.85rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .service-card ul {
+                font-size: 0.8rem;
+                margin: 0.8rem 0;
+            }
+
+            .service-card li {
+                padding: 0.3rem 0;
+                padding-left: 1.2rem;
+            }
+
+            .team-member {
+                padding: 1.2rem;
+                margin: 1rem auto;
+            }
+
+            .team-member h3 {
+                font-size: 1.1rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .team-member .title {
+                font-size: 0.85rem;
+                margin-bottom: 1rem;
+            }
+
+            .team-member p {
+                font-size: 0.85rem;
+                text-align: left;
+                margin-bottom: 0.8rem;
+            }
+
+            .team-member h4 {
+                font-size: 0.85rem;
+                margin-top: 1rem;
+                margin-bottom: 0.6rem;
+            }
+
+            .team-member ul {
+                font-size: 0.8rem;
+            }
+
+            .team-member li {
+                padding: 0.2rem 0;
+                padding-left: 1.2rem;
+            }
+
+            .portfolio-intro {
+                font-size: 0.9rem;
+                line-height: 1.6;
+                margin-bottom: 2rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .portfolio-item-header {
+                padding: 1.2rem;
+                min-height: 80px;
+            }
+
+            .portfolio-item h3 {
+                font-size: 0.95rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .portfolio-item .category {
+                font-size: 0.75rem;
+            }
+
+            .portfolio-item-content {
+                padding: 1rem;
+            }
+
+            .portfolio-item p {
+                font-size: 0.85rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .news-intro {
+                font-size: 0.9rem;
+                line-height: 1.6;
+                margin-bottom: 2rem;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .news-card {
+                border-radius: 2px;
+            }
+
+            .news-card-header {
+                padding: 1rem;
+                border-bottom-width: 2px;
+            }
+
+            .news-card-header h3 {
+                font-size: 0.95rem;
+                margin-bottom: 0.4rem;
+                line-height: 1.4;
+            }
+
+            .news-card-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.4rem;
+                font-size: 0.7rem;
+                margin-top: 0.6rem;
+            }
+
+            .news-card-source {
+                padding: 0.2rem 0.5rem;
+                font-size: 0.7rem;
+            }
+
+            .news-card-date {
+                font-size: 0.7rem;
+            }
+
+            .news-card-content {
+                padding: 1rem;
+            }
+
+            .news-card-desc {
+                font-size: 0.85rem;
+                margin-bottom: 1rem;
+                line-height: 1.6;
+            }
+
+            .news-card-link {
+                font-size: 0.8rem;
+            }
+
+            .contact-intro {
+                font-size: 0.9rem;
+                line-height: 1.6;
+                margin-bottom: 2rem;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .contact-item {
+                padding: 1.2rem;
+            }
+
+            .contact-item h3 {
+                font-size: 0.95rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .contact-item a {
+                font-size: 0.85rem;
+                word-break: break-word;
+            }
+
+            footer {
+                padding: 1.5rem;
+                font-size: 0.8rem;
+            }
+
+            footer p {
+                margin: 0.3rem 0;
             }
         }
     </style>
@@ -917,7 +1248,7 @@
 
                 <div class="contact-item">
                     <h3>Instagram</h3>
-                    <a href="https://www.instagram.com/358hyt/" target="_blank">@358hyt</a>
+                    <a href="https://www.instagram.com/358studio?igsh=b2w2NjlucG01ZTV4&utm_source=qr" target="_blank">@358studio</a>
                 </div>
 
                 <div class="contact-item">
