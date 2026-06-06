@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>參伍捌工作室 - Third, Fifth, Eight Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-black: #1a1a1a;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+            --border-color: #e0e0e0;
+            --accent-red: #d32f2f;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            color: var(--primary-black);
+            background-color: #ffffff;
+            line-height: 1.8;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--primary-black);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-red);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--primary-black);
+            color: #ffffff;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero .logo-img {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 2rem;
+            object-fit: contain;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            color: var(--light-gray);
+            margin-bottom: 2rem;
+        }
+
+        .hero .subtitle {
+            font-size: 0.95rem;
+            color: #cccccc;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        section p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        #about .content {
+            max-width: 800px;
+            font-size: 1.05rem;
+            line-height: 1.9;
+        }
+
+        /* Artists Section */
+        .artist-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .artist-card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .artist-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .artist-info .title {
+            font-size: 1rem;
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+        }
+
+        .artist-info .bio {
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .artist-info h4 {
+            font-size: 1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .artist-info ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .artist-info li {
+            padding: 0.4rem 0;
+            font-size: 0.95rem;
+        }
+
+        /* Release Section */
+        .release-tabs {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .release-tabs button {
+            background: none;
+            border: none;
+            padding: 1rem 0;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            color: var(--dark-gray);
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .release-tabs button.active {
+            color: var(--primary-black);
+            border-bottom-color: var(--primary-black);
+        }
+
+        .release-content {
+            display: none;
+        }
+
+        .release-content.active {
+            display: block;
+        }
+
+        .release-item {
+            margin-bottom: 2rem;
+        }
+
+        .release-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .release-item a {
+            color: var(--accent-red);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .release-item a:hover {
+            text-decoration: underline;
+        }
+
+        .soundcloud-player {
+            margin-top: 1.5rem;
+        }
+
+        /* Studio Section */
+        .service-item {
+            margin-bottom: 2rem;
+        }
+
+        .service-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-item .subtitle {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+            margin-bottom: 0.8rem;
+        }
+
+        .service-item ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .service-item li {
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-item li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+        }
+
+        /* Collaborator Section */
+        .collaborator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .collaborator-card {
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .collaborator-card img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 1rem;
+            object-fit: contain;
+        }
+
+        .collaborator-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .collaborator-card a {
+            color: var(--accent-red);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .collaborator-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* News Section */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .news-card {
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+        }
+
+        .news-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.5;
+        }
+
+        .news-card .source {
+            font-size: 0.85rem;
+            color: var(--dark-gray);
+            margin-bottom: 0.8rem;
+        }
+
+        .news-card p {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .news-card a {
+            color: var(--accent-red);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .news-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+        }
+
+        .contact-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-item a {
+            color: var(--accent-red);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            margin-top: 2rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-black);
+            color: #ffffff;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.1rem;
+            }
+
+            .artist-card {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            section {
+                padding: 2.5rem 1.5rem;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .release-tabs {
+                gap: 1rem;
+            }
+
+            .release-tabs button {
+                font-size: 0.9rem;
+                padding: 0.8rem 0;
+            }
+
+            .collaborator-grid,
+            .news-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .map-container {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+                width: 100%;
+            }
+
+            nav a {
+                display: block;
+                padding: 0.5rem 0;
+            }
+
+            .hero {
+                padding: 3rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1rem;
+            }
+
+            .hero .logo-img {
+                width: 80px;
+                height: 80px;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+
+            section h2 {
+                font-size: 1.3rem;
+            }
+
+            .artist-info h3 {
+                font-size: 1.3rem;
+            }
+
+            .map-container {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">358 STUDIO</a>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#artists">Artists</a></li>
+                <li><a href="#release">Release</a></li>
+                <li><a href="#studio">Studio</a></li>
+                <li><a href="#collaborator">Collaborator</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <img src="images/358studio_logo.png" alt="358 Studio Logo" class="logo-img">
+            <h1>參伍捌工作室</h1>
+            <p class="subtitle">Third, Fifth, Eight Studio</p>
+            <p class="tagline">讓你把聲音，變成你自己的樣子</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About</h2>
+            <div class="content">
+                <p>參伍捌工作室是一間以「聲音」為核心的創作與製作空間。我們專注於音樂製作、劇場音樂設計、歌唱指導與聲音表達，陪伴每一位創作者與演唱者，找到屬於自己的聲音樣貌。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artists Section -->
+    <section id="artists">
+        <div class="container">
+            <h2>Artists</h2>
+            <div class="artist-card">
+                <img src="images/ahsu_photo.jpg" alt="徐鈺婷">
+                <div class="artist-info">
+                    <h3>徐鈺婷（阿徐） Hsu</h3>
+                    <p class="title">獨立音樂人／聲音藝術家／劇場音樂設計</p>
+                    <p class="bio">畢業於東吳大學歷史系與實踐大學音樂系碩士班，主修音樂設計。長期投入流行音樂、劇場音樂與聲音設計工作，擅長歌唱教學、配唱製作與聲音情緒引導。</p>
+                    <h4>重要經歷</h4>
+                    <ul>
+                        <li>2025 北流金舞台歌唱大賽｜總冠軍</li>
+                        <li>LA Voice 賽普特世界好聲音｜前十名</li>
+                        <li>第34屆傳藝金曲獎典禮配樂｜音樂製作</li>
+                        <li>北藝中心開幕季《永晴之許》｜音樂助理</li>
+                        <li>天作之合音樂劇《阿堯》｜音樂執導助理／現場PG樂手</li>
+                        <li>動見体《門禁社區》、《落英》｜音樂助理暨音效執行</li>
+                        <li>人尹合作社寶寶劇場系列《媽媽，我什麼時候可以長大》、《媽媽，地球塑膠了》｜音樂設計</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Release Section -->
+    <section id="release">
+        <div class="container">
+            <h2>Release</h2>
+            <div class="release-tabs">
+                <button class="active" onclick="switchTab(event, 'music')">Music</button>
+                <button onclick="switchTab(event, 'theatre')">Theatre</button>
+            </div>
+
+            <!-- Music Tab -->
+            <div id="music" class="release-content active">
+                <div class="release-item">
+                    <h3>2025 首張創作概念EP《韌》</h3>
+                    <p><a href="https://linktr.ee/hsuyuting555?utm_source=linktree_profile_share&ltsid=3fabe4ba-0c2c-4956-80ac-b85148fd8d9b" target="_blank">聆聽《韌》</a></p>
+                </div>
+            </div>
+
+            <!-- Theatre Tab -->
+            <div id="theatre" class="release-content">
+                <div class="release-item">
+                    <h3>劇場作品集</h3>
+                    <div class="soundcloud-player">
+                        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2FYGU4U4HJ5cgyAC678&color=%23000000&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
+                    </div>
+                </div>
+
+                <div class="release-item">
+                    <h3>B版卡拉帶製作</h3>
+                    <div class="soundcloud-player">
+                        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2F9cVVcqceVka5CDYtah&color=%23000000&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Studio Section -->
+    <section id="studio">
+        <div class="container">
+            <h2>Studio</h2>
+            <div class="service-item">
+                <h3>歌唱指導</h3>
+                <p class="subtitle">Vocal Coaching</p>
+                <p>針對不同程度與需求，提供一對一歌唱指導。採用配唱式引導，透過實際演唱中的即時回饋與調整，幫助你在歌曲裡找到最自然的表達方式。</p>
+                <ul>
+                    <li>基礎發聲與呼吸</li>
+                    <li>音準節奏訓練</li>
+                    <li>共鳴與音色開發</li>
+                    <li>情緒與語氣詮釋</li>
+                    <li>流行歌演唱技巧</li>
+                    <li>表演與舞台表達</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collaborator Section -->
+    <section id="collaborator">
+        <div class="container">
+            <h2>Collaborator</h2>
+            <div class="collaborator-grid">
+                <div class="collaborator-card">
+                    <img src="images/enlightenflow_logo.png" alt="啟萌流動">
+                    <h3><a href="https://www.enlightenflow2020.com/" target="_blank">啟萌流動</a></h3>
+                    <p>以舞蹈為核心的流動系統，陪伴人們回到身體，重新感受自己。</p>
+                </div>
+                <div class="collaborator-card">
+                    <img src="images/misounds_logo.png" alt="汨音">
+                    <h3><a href="https://mi-sounds.com" target="_blank">汨音</a></h3>
+                    <p>透過頌缽音流，連結自然能量與人體細胞共振調頻。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news">
+        <div class="container">
+            <h2>News</h2>
+            <div class="news-grid">
+                <div class="news-card">
+                    <h3>登上舞台不是夢！金舞台優勝者在圓夢大歌廳實現音樂夢</h3>
+                    <p class="source">台北流行音樂中心</p>
+                    <p>2025 北流金舞台歌唱大賽冠軍徐鈺婷，站上北流圓夢大歌廳舞台。</p>
+                    <a href="https://www.tmc.taipei/tw/media/article/9CEc18581E07" target="_blank">閱讀更多</a>
+                </div>
+                <div class="news-card">
+                    <h3>Podcast 訪談</h3>
+                    <p class="source">YouTube Music</p>
+                    <p>阿徐的音樂創作與聲音故事分享。</p>
+                    <a href="https://music.youtube.com/podcast/GSF7riWkQMg" target="_blank">聆聽</a>
+                </div>
+                <div class="news-card">
+                    <h3>唱出自己的韌性</h3>
+                    <p class="source">台北流行音樂中心 Facebook</p>
+                    <p>從被否定到圓夢時刻，不菸不酒的菸酒嗓獨立音樂人徐鈺婷專訪。</p>
+                    <a href="https://www.facebook.com/TaipeiMusicCenter/posts/-唱出自己的韌性從被否定到圓夢時刻-2025-北流金舞台歌唱大賽冠軍-徐鈺婷專訪不菸不酒的菸酒嗓是獨立音樂人徐鈺婷向大家介紹自己的招牌標誌她的音樂之路啟蒙自曾參/1170649685171439/" target="_blank">閱讀更多</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h3>LINE Official</h3>
+                    <p><a href="https://lin.ee/fAjwkhK" target="_blank">參伍捌工作室Line官方</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>Instagram</h3>
+                    <p><a href="https://www.instagram.com/358studio?igsh=b2w2NjlucG01ZTV4&utm_source=qr" target="_blank">@358studio</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <p><a href="mailto:tfestudio358@gmail.com">tfestudio358@gmail.com</a></p>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.5!2d121.5162922!3d25.024312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a9d97384eb87%3A0x7e89d57313fb2839!2z5Y-D5LyN5o2M5bel5L2c5a6k!5e0!3m2!1szh-TW!2stw!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Third, Fifth, Eight Studio. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function switchTab(event, tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.release-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.release-tabs button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
