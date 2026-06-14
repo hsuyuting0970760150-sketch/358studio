@@ -81,14 +81,20 @@
         .hero {
             background-color: var(--primary-black);
             color: #ffffff;
-            padding: 6rem 2rem;
+            padding: 2rem;
             text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .hero .logo-img {
-            width: 120px;
-            height: 120px;
-            margin-bottom: 2rem;
+            width: 100%;
+            max-width: 480px;
+            height: auto;
+            margin-bottom: 2.5rem;
             object-fit: contain;
         }
 
@@ -472,7 +478,8 @@
             }
 
             .hero {
-                padding: 3rem 1rem;
+                padding: 2rem 1rem;
+                min-height: 100vh;
             }
 
             .hero h1 {
@@ -484,8 +491,9 @@
             }
 
             .hero .logo-img {
-                width: 80px;
-                height: 80px;
+                width: 85%;
+                max-width: 320px;
+                height: auto;
             }
 
             section {
