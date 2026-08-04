@@ -361,14 +361,16 @@
             text-decoration: underline;
         }
 
-        .news-video {
-            margin-bottom: 1rem;
+        .news-featured-video {
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
             border-radius: 4px;
             overflow: hidden;
         }
 
-        .news-video iframe {
+        .news-featured-video iframe {
             display: block;
+            border-radius: 4px;
         }
 
         /* Contact Section */
@@ -660,15 +662,12 @@
     <section id="news">
         <div class="container">
             <h2>News</h2>
+            <!-- 影片置中 -->
+            <div class="news-featured-video">
+                <iframe width="100%" height="450" src="https://www.youtube.com/embed/iJ7WhCf6OtQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <!-- 文字卡片橫列 -->
             <div class="news-grid">
-                <div class="news-card">
-                    <div class="news-video">
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/iJ7WhCf6OtQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <h3>《紅人榜》冠軍歌手踢館</h3>
-                    <p class="source">超級紅人榜</p>
-                    <a href="https://www.youtube.com/watch?v=iJ7WhCf6OtQ" target="_blank">觀看影片</a>
-                </div>
                 <div class="news-card">
                     <h3>《紅人榜》冠軍歌手踢館 — 徐鈺婷選唱《上水的花》大獲好評</h3>
                     <p class="source">三立新聞網</p>
